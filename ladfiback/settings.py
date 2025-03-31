@@ -49,7 +49,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 #ALLOWED_HOSTS.append(config('ALLOWED_HOST'))
 
 LOCAL_APPS = [
-    'login'
+    'login',
+    'canvas',
+    'marketbase'
 ]
 
 DJANGO_APPS = [

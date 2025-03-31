@@ -5,7 +5,7 @@ import os
 
 # Definir la clave y el texto a encriptar
 secret_key = "FGa62cSP505X6AiQdJI3h2N8LBoXMNyB".encode('utf-8')
-password = "nova123".encode('utf-8')
+password = "delta123".encode('utf-8')
 
 # Generar un IV aleatorio
 iv = os.urandom(AES.block_size)
