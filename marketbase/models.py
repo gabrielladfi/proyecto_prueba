@@ -27,5 +27,38 @@ class CompanyBase(models.Model):
 
     def __str__(self):
         return self.company_name
+
+
+# Manager para Landing
+class LandingManager(models.Manager):
+    def for_user(self, user):
+        return self.get_queryset().filter(user=user)
     
+
+# Modelo para Wireframes de Landings Pages
+class Landing(models.Model):
+    id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=200, unique=False)
+    description = models.CharField(max_length=500, unique=False)
+    call_action01 = models.CharField(max_length=300, unique=False)
+    call_action02 = models.CharField(max_length=300, unique=False)
+    call_action03 = models.CharField(max_length=300, unique=False)
+    about_us = models.CharField(max_length=500, unique=False)
+    beneficios_clave = models.CharField(max_length=500, unique=False)
+    testimonials = models.CharField(max_length=500, unique=False)
+    faqs = models.CharField(max_length=500, unique=False)
+    wireframe_type = models.CharField(max_length=200, unique=False) #tipo_1, tipo_2, tipo_3
+
+    ##########################	
+    # Relación con el usuario
+    user = models.ForeignKey(
+        CustomUser, 
+        on_delete=models.CASCADE
+    )
+
+    objects = LandingManager()
+
+    def __str__(self):
+        return self.title
+        
 
