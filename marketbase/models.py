@@ -1,7 +1,9 @@
 from django.db import models
 from login.models import CustomUser
 
+#########################
 # Manager para Company
+#########################
 class CompanyBaseManager(models.Manager):
     def for_user(self, user):
         return self.get_queryset().filter(user=user)
@@ -29,7 +31,17 @@ class CompanyBase(models.Model):
         return self.company_name
 
 
+###############################
+# Crear un modelo de Campaign
+##############################
+class CampaignMain(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=150, unique=False)
+    
+
+#######################
 # Manager para Landing
+######################
 class LandingManager(models.Manager):
     def for_user(self, user):
         return self.get_queryset().filter(user=user)
