@@ -30,6 +30,12 @@ class CompanyBase(models.Model):
     def __str__(self):
         return self.company_name
 
+###############################
+# Manager para CampaignMain
+###############################
+class CampaignMainManager(models.Manager):
+    def for_user(self, user):
+        return self.get_queryset().filter(user=user)
 
 ###############################
 # Crear un modelo de Campaign
@@ -37,6 +43,20 @@ class CompanyBase(models.Model):
 class CampaignMain(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=150, unique=False)
+    
+    ##########################	
+    # Relación con el usuario
+    user = models.ForeignKey(
+        CustomUser, 
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
+    )
+
+    objects = CampaignMainManager()
+
+    def __str__(self):
+        return self.id
     
 
 #######################
@@ -60,6 +80,15 @@ class Landing(models.Model):
     testimonials = models.CharField(max_length=500, unique=False)
     faqs = models.CharField(max_length=500, unique=False)
     wireframe_type = models.CharField(max_length=200, unique=False) #tipo_1, tipo_2, tipo_3
+
+    ### Relación Con Campañas ###
+    campaign = models.OneToOneField(
+        'CampaignMain', 
+        on_delete=models.CASCADE, 
+        related_name='landing',  # acceso: campaign_instance.landing
+        null=True, 
+        blank=True
+    )
 
     ##########################	
     # Relación con el usuario

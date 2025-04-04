@@ -61,7 +61,6 @@ class CompanyBaseDetail(APIView):
 # Endpoints para crear las Campañas Generales
 ###############################
 
-
 class CampaignMainAPIView(APIView):
 
     permission_classes = [IsAuthenticated]
@@ -72,7 +71,7 @@ class CampaignMainAPIView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
-        serializer = CampaignMainSerializer(data=request.data)
+        serializer = CampaignMainSerializer(data=request.data, context={'request': request})
         if serializer.is_valid():
             #Asignación al usuario
             serializer.save(user=request.user)
