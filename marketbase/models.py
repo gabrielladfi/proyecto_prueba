@@ -58,7 +58,7 @@ class CampaignMain(models.Model):
     def __str__(self):
         return self.id
     
-
+######################
 #######################
 # Manager para Landing
 ######################
