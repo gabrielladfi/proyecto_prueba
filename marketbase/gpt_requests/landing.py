@@ -1,6 +1,7 @@
 import os
 from openai import OpenAI
 
+OPENAI_KEY = "-"
 
 def gentitle_landing(text):
 
