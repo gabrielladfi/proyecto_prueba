@@ -1,7 +1,7 @@
 import os
 from openai import OpenAI
 
-OPENAI_KEY = "-"
+OPENAI_KEY="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"
 
 def gentitle_landing(text):
 
