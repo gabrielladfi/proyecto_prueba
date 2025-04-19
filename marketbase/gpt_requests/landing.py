@@ -2,7 +2,6 @@ import os
 from openai import OpenAI
 
 
-
 def gentitle_landing(text):
 
     client = OpenAI(
