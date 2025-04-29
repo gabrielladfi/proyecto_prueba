@@ -8,4 +8,5 @@ urlpatterns = [
         path('landing/<int:pk>/', LandingDetail.as_view(), name='titulares-detail'),
         path('campaigns/', CampaignMainAPIView.as_view(), name='titulares-list-create'),
         path('campaigns/<int:pk>/', CampaignMainDetail.as_view(), name='titulares-detail'),
+        #Complete Flow
 ]

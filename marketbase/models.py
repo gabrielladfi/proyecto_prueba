@@ -52,7 +52,7 @@ class CampaignMain(models.Model):
         null=True,
         blank=True
     )
-
+    
     objects = CampaignMainManager()
 
     def __str__(self):
